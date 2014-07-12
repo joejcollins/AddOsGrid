@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Net.Mime;
+using DotNetCoords;
 
 namespace Ncoordexif
 {
@@ -26,10 +27,12 @@ namespace Ncoordexif
         {
             Image i = Image.FromFile(filename);
             GpsMetaData gps = i.GetGpsInfo();
+            LatLng latLng = new LatLng(gps.Latitude, gps.Longitude);
+            OSRef osRef = new OSRef(latLng);
 
 
 
-            Console.Write(gps.Latitude);
+            Console.Write(osRef.ToSixFigureString());
         }
     }
 }

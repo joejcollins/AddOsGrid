@@ -45,11 +45,6 @@
     <Compile Include="Arguments.cs" />
     <Compile Include="Commandline\CommandLineArguments.cs" />
     <Compile Include="ImageExtensions.cs" />
-    <Compile Include="Ncoord\LatLng.cs" />
-    <Compile Include="Ncoord\OSRef.cs" />
-    <Compile Include="Ncoord\RefEll.cs" />
-    <Compile Include="Ncoord\Util.cs" />
-    <Compile Include="Ncoord\UTMRef.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +58,12 @@
     <Content Include="IMGP0037.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetCoords\DotNetCoords.csproj">
+      <Project>{73c0ce44-da58-4334-bfa1-f7522805d008}</Project>
+      <Name>DotNetCoords</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
