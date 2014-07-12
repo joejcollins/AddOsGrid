@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Drawing;
-using System.Net.Mime;
 using DotNetCoords;
 
-namespace Ncoordexif
+namespace AddOSGrid
 {
     class Program
     {
         static void Main(string[] args)
         {
-            StickInTheExif(args[0]);
+            var options = new Options();
+            if (CommandLine.Parser.Default.ParseArguments(args, options))
+            {
+                StickInTheExif(options.ImageFile);   
+            }
             Console.ReadLine();
         }
 
@@ -27,12 +30,12 @@ namespace Ncoordexif
         {
             Image i = Image.FromFile(filename);
             GpsMetaData gps = i.GetGpsInfo();
-            LatLng latLng = new LatLng(gps.Latitude, gps.Longitude);
-            OSRef osRef = new OSRef(latLng);
-
-
+            var latLng = new LatLng(gps.Latitude, gps.Longitude);
+            var osRef = new OSRef(latLng);
 
             Console.Write(osRef.ToSixFigureString());
+            i.SetDescription(osRef.ToSixFigureString());
+            i.Save("OS_" + filename);
         }
     }
 }
