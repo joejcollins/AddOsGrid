@@ -11,7 +11,7 @@
  */
 using System;
 
-namespace Ncoordexif
+namespace Ncoord
 {
     internal class LatLng
     {

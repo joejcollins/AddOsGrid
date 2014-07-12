@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="jstott\LatLng.cs" />
-    <Compile Include="jstott\OSRef.cs" />
-    <Compile Include="jstott\RefEll.cs" />
-    <Compile Include="jstott\Util.cs" />
-    <Compile Include="jstott\UTMRef.cs" />
+    <Compile Include="Arguments.cs" />
+    <Compile Include="Commandline\CommandLineArguments.cs" />
+    <Compile Include="ImageExtensions.cs" />
+    <Compile Include="Ncoord\LatLng.cs" />
+    <Compile Include="Ncoord\OSRef.cs" />
+    <Compile Include="Ncoord\RefEll.cs" />
+    <Compile Include="Ncoord\Util.cs" />
+    <Compile Include="Ncoord\UTMRef.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

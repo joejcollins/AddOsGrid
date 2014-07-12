@@ -11,7 +11,7 @@
  * @since 1.0
  */
 
-namespace Ncoordexif
+namespace Ncoord
 {
     internal class RefEll
     {
