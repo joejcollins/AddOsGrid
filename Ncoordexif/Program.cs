@@ -11,6 +11,7 @@ namespace Ncoordexif
         static void Main(string[] args)
         {
 
+            Console.ReadLine();
         }
     }
 }
