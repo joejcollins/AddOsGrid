@@ -47,9 +47,9 @@ namespace ConsoleApp
             var gpsMetaData = image.GetGpsInfo();
             var latLng = new LatLng(gpsMetaData.Latitude, gpsMetaData.Longitude);
             var osRef = new OSRef(latLng);
-            var sixFigureOsRef = osRef.ToSixFigureString();
-            image.SetDescription(sixFigureOsRef);
-            image.Save(sixFigureOsRef + "_" + filename);
+            var tenFigureOsRef = osRef.ToTenFigureString();
+            image.SetDescription(tenFigureOsRef);
+            image.Save(tenFigureOsRef + "_" + filename);
         }
     }
 }
