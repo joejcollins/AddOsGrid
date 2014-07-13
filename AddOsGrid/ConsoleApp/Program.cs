@@ -20,14 +20,14 @@ namespace ConsoleApp
                 }
                 catch(Exception e)
                 {
-                    Console.WriteLine("Don't understand.");
+                    Console.WriteLine("Don't understand (no GPS?, not an image?).");
                 }
             }
         }
 
 
         /// <summary>
-        /// Print a suitable usage message, a suitable command line might be:
+        /// Print a suitable usage message
         /// </summary>
         private static void PrintUsage()
         {
@@ -37,13 +37,17 @@ namespace ConsoleApp
             Console.WriteLine("Renames file to OSXXXXXX_imagefile.jpg and changes EXIF description.");
         }
 
+        /// <summary>
+        /// Stick the OS grid reference on the filename and in the EXIF description.
+        /// </summary>
+        /// <param name="filename"></param>
         private static void AddOsGrid(String filename)
         {
-            Image image = Image.FromFile(filename);
-            GpsMetaData gpsMetaData = image.GetGpsInfo();
+            var image = Image.FromFile(filename);
+            var gpsMetaData = image.GetGpsInfo();
             var latLng = new LatLng(gpsMetaData.Latitude, gpsMetaData.Longitude);
             var osRef = new OSRef(latLng);
-            string sixFigureOsRef = osRef.ToSixFigureString();
+            var sixFigureOsRef = osRef.ToSixFigureString();
             image.SetDescription(sixFigureOsRef);
             image.Save(sixFigureOsRef + "_" + filename);
         }
