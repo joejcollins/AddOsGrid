@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddOSGrid", "AddOSGrid.csproj", "{67CF2D3D-C61E-4001-8D5A-DA0A2D3191BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp.csproj", "{67CF2D3D-C61E-4001-8D5A-DA0A2D3191BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoords", "..\DotNetCoords\DotNetCoords.csproj", "{73C0CE44-DA58-4334-BFA1-F7522805D008}"
 EndProject

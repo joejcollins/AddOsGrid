@@ -2,18 +2,27 @@
 using System.Drawing;
 using DotNetCoords;
 
-namespace AddOSGrid
+namespace ConsoleApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var options = new Options();
-            if (CommandLine.Parser.Default.ParseArguments(args, options))
+            if (args.Length == 0)
             {
-                StickInTheExif(options.ImageFile);   
+                PrintUsage();
             }
-            Console.ReadLine();
+            else
+            {
+                try
+                {
+                    AddOsGrid(args[0]);
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine("Don't understand.");
+                }
+            }
         }
 
 
@@ -23,19 +32,20 @@ namespace AddOSGrid
         private static void PrintUsage()
         {
             Console.WriteLine();
-            Console.WriteLine("Blah");
+            Console.WriteLine("AddOSGrid imagefile.jpg");
+            Console.WriteLine();
+            Console.WriteLine("Renames file to OSXXXXXX_imagefile.jpg and changes EXIF description.");
         }
 
-        private static void StickInTheExif(String filename)
+        private static void AddOsGrid(String filename)
         {
-            Image i = Image.FromFile(filename);
-            GpsMetaData gps = i.GetGpsInfo();
-            var latLng = new LatLng(gps.Latitude, gps.Longitude);
+            Image image = Image.FromFile(filename);
+            GpsMetaData gpsMetaData = image.GetGpsInfo();
+            var latLng = new LatLng(gpsMetaData.Latitude, gpsMetaData.Longitude);
             var osRef = new OSRef(latLng);
-
-            Console.Write(osRef.ToSixFigureString());
-            i.SetDescription(osRef.ToSixFigureString());
-            i.Save("OS_" + filename);
+            string sixFigureOsRef = osRef.ToSixFigureString();
+            image.SetDescription(sixFigureOsRef);
+            image.Save(sixFigureOsRef + "_" + filename);
         }
     }
 }

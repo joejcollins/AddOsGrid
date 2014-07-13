@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 using System.Text;
 using System.Linq;
 
-namespace AddOSGrid
+namespace ConsoleApp
 {
     public static class ImageExtensions
     {
