@@ -1,4 +1,4 @@
 AddOSGrid
 ==========
 
-Add an Ordnance Survey grid reference based no the lat and long provided by the GPS in an image.
+Add an Ordnance Survey grid reference to the file name based on the lat and long provided by the GPS in an image.
