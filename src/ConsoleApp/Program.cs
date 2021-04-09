@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using CompactExifLib;
 using DotNetCoords;
 
 namespace ConsoleApp
@@ -43,13 +44,11 @@ namespace ConsoleApp
         /// <param name="filename"></param>
         private static void AddOsGrid(String filename)
         {
-            var image = Image.FromFile(filename);
-            var gpsMetaData = image.GetGpsInfo();
-            var latLng = new LatLng(gpsMetaData.Latitude, gpsMetaData.Longitude);
-            var osRef = new OSRef(latLng);
-            var tenFigureOsRef = osRef.ToTenFigureString();
-            image.SetDescription(tenFigureOsRef);
-            image.Save(tenFigureOsRef + "_" + filename);
+            ExifData TestExif;
+            TestExif = new ExifData(filename);
+            DateTime DateTaken;
+            TestExif.GetTagValue(ExifTag.DateTimeOriginal, out DateTaken);
+            Console.WriteLine();
         }
     }
 }

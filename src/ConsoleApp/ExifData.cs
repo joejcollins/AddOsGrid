@@ -1,4 +1,5 @@
 ﻿// -------------------------------------------------------------------------------------------------
+// https://www.codeproject.com/Articles/5251929/CompactExifLib-Access-to-EXIF-Tags-in-JPEG-Files
 //
 // Library "CompactExifLib" for reading and writing EXIF data in JPEG image files.
 //
@@ -44,8 +45,6 @@
 // Version 1.0, Date 2020-05-01
 // •Initial version.
 //
-
-
 // -------------------------------------------------------------------------------------------------
 
 using System;
