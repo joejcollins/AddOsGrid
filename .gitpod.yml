@@ -1,0 +1,12 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - command: |
+      echo 'eval "$(starship init bash)"' >> $HOME/.bashrc
+      source $HOME/.bashrc
+vscode:
+  extensions:
+    - eamodio.gitlens
+    - streetsidesoftware.code-spell-checker
+    - muhammad-sammy.csharp
